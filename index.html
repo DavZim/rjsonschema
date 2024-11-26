@@ -174,9 +174,16 @@
 <span>  <span class="st">'{"productId": 1, "productName": "A green door", "price": 12.50}'</span></span>
 <span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
+<p>Note that instance can also be an R list directly (will be converted to JSON for validation):</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="reference/validate.html">validate</a></span><span class="op">(</span></span>
+<span>  <span class="va">schema</span>,</span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>productId <span class="op">=</span> <span class="fl">1</span>, productName <span class="op">=</span> <span class="st">"A green door"</span>, price <span class="op">=</span> <span class="fl">12.50</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
 <p>The JSON object is valid, as it adheres to the schema.</p>
 <p>However, the following JSON object is not valid:</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/validate.html">validate</a></span><span class="op">(</span></span>
 <span>  <span class="va">schema</span>,</span>
 <span>  <span class="st">'{"productId": "1", "productName": "A green door", "price": 0}'</span></span>
